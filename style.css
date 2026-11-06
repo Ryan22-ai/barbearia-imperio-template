@@ -12,11 +12,14 @@ body {
   background-position: center;
 }
 
+/* Quebra do gradiente no H1 em múltiplas linhas */
 .gold-text {
   background: linear-gradient(90deg, #f59e0b, #d97706);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .wpp-pulse {
@@ -45,11 +48,12 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
+/* Override correto para acessibilidade com Tailwind scroll-smooth */
 @media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
   .wpp-pulse::before {
     animation: none;
-  }
-  html {
-    scroll-behavior: auto;
   }
 }
